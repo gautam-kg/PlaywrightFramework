@@ -10,6 +10,7 @@ async gotoProductPage(){
     await this.page.goto("https://demo.nopcommerce.com/");
 }
 
+//Find Product and add to cart
 async addProductToCart(productName){
     const productlist= await this.page.$$(this.productlist);
     for (const product of productlist){
@@ -27,6 +28,7 @@ async gotoCart(){
 
 }
 
+//Verify that added product is listed in the cart
 async verifycartItems(cartPname){
     await this.page.waitForSelector(this.cartProducts);
     const cartItems= await this.page.$$(this.cartProducts);
